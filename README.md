@@ -1,2 +1,2 @@
 # Cobalt-core
-The core of the Cobalt
+The core of the Cobalt project
