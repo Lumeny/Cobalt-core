@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lumeny/Cobalt-core.git"
+    "url": "git+https://github.com/Odenna/Cobalt-core.git"
   },
-  "author": "Lumeny",
-  "license": "MIT",
+  "author": "Odenna",
+  "license": "AGPLv3",
   "bugs": {
-    "url": "https://github.com/Lumeny/Cobalt-core/issues"
+    "url": "https://github.com/Odenna/Cobalt-core/issues"
   },
-  "homepage": "https://github.com/Lumeny/Cobalt-core#readme"
+  "homepage": "https://github.com/Odenna/Cobalt-core#readme"
 }
