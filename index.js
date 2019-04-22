@@ -1,7 +1,12 @@
 /*
 **  Cobalt Core project
 */
-
 'use strict';
 
-module.exports = require('./src/cobaltcore.js');
+const net = require('net');
+
+const server = net.createServer((socket) => {
+    socket.end('goodbye !');
+})
+
+server.listen(4541);
