@@ -13,8 +13,10 @@ describe('Connexion', function() {
             client.write(JSON.stringify(protocol.sendPing));
         });
         client.on('data', (data) =>  {
+            client.end();
             if (data.toString() !== 'pong') done(false);
             done();
+            
         });
     });
 });
