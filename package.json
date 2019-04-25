@@ -4,9 +4,7 @@
   "description": "The Cobalt's core",
   "main": "index.js",
   "scripts": {
-    "pretest": "forever start index.js",
-    "test": "mocha || :",
-    "posttest": "forever stop index.js",
+    "test": "mocha",
     "start": "node index.js"
   },
   "repository": {
@@ -20,7 +18,6 @@
   },
   "homepage": "https://github.com/Odenna/Cobalt-core#readme",
   "devDependencies": {
-    "forever": "1.0.0",
     "mocha": "6.1.4"
   },
   "dependencies": {}
