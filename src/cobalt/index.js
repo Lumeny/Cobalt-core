@@ -15,7 +15,7 @@ Cobalt.prototype.parse = function(data) {
             }*/
             break;
         case 'ping':
-            this._from.write('pong');
+            this._from.write(JSON.stringify({'from':'server', 'action':'ping', 'content':'pong'}));
             break;
         case 'message':
             //clients.get(data.to).write('Reponse')

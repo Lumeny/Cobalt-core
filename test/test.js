@@ -14,7 +14,7 @@ describe('Connexion', function() {
         });
         client.on('data', (data) =>  {
             client.end();
-            if (data.toString() !== 'pong') done(false);
+            if (JSON.parse(data.toString()).content !== 'pong') done(false);
             done();
             
         });
