@@ -20,5 +20,7 @@
   "devDependencies": {
     "mocha": "6.1.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "winston": "3.2.1"
+  }
 }
