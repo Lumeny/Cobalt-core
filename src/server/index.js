@@ -1,7 +1,7 @@
 'use strict';
 const net = require('net');
 const Cobalt = require('../cobalt');
-const Logger = require('../logger');
+const logger = require('../logger')();
 
 class Server {
     constructor(env) {
@@ -30,10 +30,10 @@ Server.prototype._init = async function() {
 }
 
 Server.prototype.start = async function() {
-    console.log(this.NAME + ' Starting server...');
+    logger.info(this.NAME + ' Starting server...');
     await this._init();
     this.srv.listen(this.PORT);
-    console.log(this.NAME + ' Running on port : ' + this.PORT);
+    logger.info(this.NAME + ' Running on port : ' + this.PORT);
 }
 
 class Clients {

@@ -1,30 +1,58 @@
 'use strict';
-const winston = require('winston');
+const { createLogger, format, transports } = require('winston');
 
-class Logger {
-    constructor() {
-        this.production = (process.env.NODE_ENV === 'production');
-        this.console = winston.createLogger({
-            level: 'info',
-            format: format.combine(
-                format.timestamp({
-                    format: 'YYYY-MM-DD HH:mm:ss'
-                }),
-                format.errors({ stack: true }),
-                format.splat(),
-                format.json()
-            ),
-            defaultMeta: { service: 'your-service-name' },
-            transports: [
-                //
-                // - Write to all logs with level `info` and below to `combined.log`
-                // - Write all logs error (and below) to `error.log`.
-                //
-                new transports.File({ filename: 'quick-start-error.log', level: 'error' }),
-                new transports.File({ filename: 'quick-start-combined.log' })
-            ]
-        });
-    }
+module.exports = function() {
+    return (process.env.NODE_ENV === 'production') ? loggerProd : loggerDev;
 }
 
-module.exports = Logger;
+/**
+ * @function
+ * @name loggerProd
+ * @description A winston logger configuration for the
+ * production use
+ */
+const loggerProd = createLogger({
+    level: 'info',
+    format: format.combine(
+        format.timestamp({
+            format: 'YYYY-MM-DD HH:mm:ss'
+        }),
+        format.errors({ stack: true }),
+        format.splat(),
+        format.json()
+    ),
+    defaultMeta: { service: 'COBALT-CORE' },
+    transports: [
+        new transports.File({ filename: 'logs/errors.log', level: 'error' }),
+        new transports.File({ filename: 'logs/all.log' })
+    ]
+});
+
+/**
+ * @function
+ * @name loggerDev
+ * @description A winston logger configuration for the
+ * developement use
+ */
+const loggerDev = createLogger({
+    level: 'debug',
+    format: format.combine(
+        format.timestamp({
+            format: 'YYYY-MM-DD HH:mm:ss'
+        }),
+        format.errors({ stack: true }),
+        format.splat(),
+        format.json()
+    ),
+    defaultMeta: { service: 'COBALT-CORE' },
+    transports: [
+        new transports.File({ filename: 'logs/errors.log', level: 'error' }),
+        new transports.File({ filename: 'logs/all.log' }),
+        new transports.Console({
+            format: format.combine(
+              format.colorize(),
+              format.simple()
+            )
+        })
+    ]
+});

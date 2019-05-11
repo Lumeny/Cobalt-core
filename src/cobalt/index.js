@@ -1,6 +1,6 @@
 'use strict';
 const EventEmitter = require('events');
-const Logger = require('../logger');
+const logger = require('../logger')();
 
 /**
  * @class
