@@ -14,8 +14,8 @@ class Cobalt extends EventEmitter {}
  * @name parse
  * @param {Object} data
  */
-Cobalt.prototype.parse = function(data) {
-    data = dataToArrayOfJSON(data);
+Cobalt.prototype.parse = async function(data) {
+    data = await dataToArrayOfJSON(data);
     for (let i = 0; i < data.length; i++) {
         this[data[i].action](data[i]);
     }
@@ -29,7 +29,7 @@ Cobalt.prototype.parse = function(data) {
  * there will be a bug and the data will be like '{...}{...}' so we 
  * need to separe them.
  */
-let dataToArrayOfJSON = function(data) {
+let dataToArrayOfJSON = async function(data) {
     let array = [];
     data = data.toString().split('}');
     for (let i = 0; i < data.length; i++) {
