@@ -1,6 +1,6 @@
 'use strict';
 const EventEmitter = require('events');
-const logger = require('../logger')();
+const logger = require('logger')();
 
 /**
  * @class
@@ -16,6 +16,7 @@ class Cobalt extends EventEmitter {}
  */
 Cobalt.prototype.parse = async function(data) {
     data = await dataToArrayOfJSON(data);
+    logger.debug(data)
     for (let i = 0; i < data.length; i++) {
         this[data[i].action](data[i]);
     }

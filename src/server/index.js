@@ -1,7 +1,7 @@
 'use strict';
 const net = require('net');
 const Cobalt = require('../cobalt');
-const logger = require('../logger')();
+const logger = require('logger')();
 
 class Server {
     constructor(env) {
