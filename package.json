@@ -21,6 +21,7 @@
     "mocha": "6.1.4"
   },
   "dependencies": {
+    "logger": "file:lib/logger",
     "winston": "3.2.1"
   }
 }
