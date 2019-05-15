@@ -16,11 +16,11 @@ class Cobalt extends EventEmitter {}
  */
 Cobalt.prototype.parse = async function(data) {
     data = await dataToArrayOfJSON(data);
-    logger.debug(data)
+    logger.debug(data);
     for (let i = 0; i < data.length; i++) {
         this[data[i].action](data[i]);
     }
-}
+};
 
 /**
  * @function
@@ -37,7 +37,7 @@ let dataToArrayOfJSON = async function(data) {
         if (data[i] !== '') array.push(JSON.parse(data[i] + '}'));
     }
     return array;
-}
+};
 
 /**
  * @method
@@ -47,7 +47,7 @@ let dataToArrayOfJSON = async function(data) {
  */
 Cobalt.prototype.auth = async function(data) {
     this.emit('auth', {'from':'server', 'to': data.from, 'action':'auth', 'content':'ok'});
-}
+};
 
 /**
  * @method
@@ -57,7 +57,7 @@ Cobalt.prototype.auth = async function(data) {
  */
 Cobalt.prototype.ping = async function(data) {
     this.emit('response', {'from':'server', 'to': data.from, 'action':'ping', 'content':'pong'});
-}
+};
 
 /**
  * @method
@@ -65,17 +65,17 @@ Cobalt.prototype.ping = async function(data) {
  * @param {Object} data
  * @description When the incoming data is a simple message
  */
-Cobalt.prototype.message = async function(data) {
+Cobalt.prototype.message = async function(/*data*/) {
     //clients.get(data.to).write('Reponse')
-}
+};
 
 /**
  * @method
  * @name checksum
  * @param {Object} data
  */
-Cobalt.prototype.checksum = async function(data) {
+Cobalt.prototype.checksum = async function(/*data*/) {
 
-}
+};
 
 module.exports = Cobalt;
