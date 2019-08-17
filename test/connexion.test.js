@@ -1,14 +1,14 @@
 //const assert = require('assert');
 const net = require('net');
 
-const protocol = {
+const testMessages = {
     'sendServerPing' : {
         'action' : 'ping',
         'to' : 'server',
         'from' : 'test'
     },
     'authentificate' : {
-        'action':'auth',
+        'action':'authentification',
         'from':'test',
         'to':'server'
     }
@@ -17,7 +17,7 @@ const protocol = {
 describe('Connexion', function() {
     it('Should authentificate', function(done) {
         let client = net.createConnection({port:4541}, () => {
-            client.write(JSON.stringify(protocol.authentificate));
+            client.write(JSON.stringify(testMessages.authentificate));
         });
         client.on('data', (data) =>  {
             client.end();
@@ -28,8 +28,8 @@ describe('Connexion', function() {
 
     it('Should return pong', function(done) {
         let client = net.createConnection({port:4541}, () => {
-            client.write(JSON.stringify(protocol.authentificate));
-            client.write(JSON.stringify(protocol.sendServerPing));
+            client.write(JSON.stringify(testMessages.authentificate));
+            client.write(JSON.stringify(testMessages.sendServerPing));
         });
         client.on('data', (data) =>  {
             data = JSON.parse(data.toString());
