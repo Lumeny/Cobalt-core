@@ -18,8 +18,9 @@
   },
   "homepage": "https://github.com/Odenna/Cobalt-core#readme",
   "devDependencies": {
-    "eslint": "5.16.0",
-    "mocha": "6.1.4"
+    "eslint": "^6.2.2",
+    "mocha": "^6.1.4",
+    "typescript": "^3.6.2"
   },
   "dependencies": {
     "logger": "file:lib/logger",
