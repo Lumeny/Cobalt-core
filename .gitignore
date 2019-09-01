@@ -1,12 +1,12 @@
 # NPM
-.node_modules
+node_modules
 .package-lock.json
 
 # Logger
 logs
 
 # TypeScript
-.dist
+dist
 
 # VisualStudioCode
 .vscode
@@ -19,4 +19,3 @@ logs
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules
