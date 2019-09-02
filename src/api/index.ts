@@ -13,6 +13,14 @@ class API {
         this.app.get("/", (req, res) => {
             res.send("API server is running fine !");
         });
+
+        this.app.get('/users', (req, res) => {
+            res.json({ users : 'no users'});
+        });
+
+        this.app.get('/users/:uid', (req, res) => {
+            res.json({ user : { uid : req.params.uid }});
+        });
     }
 
     public listen(port : number) {
