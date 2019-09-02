@@ -1,8 +1,18 @@
 import logger from './logger/index';
 import { API } from './api/index';
 
-let api = new API();
+class Main {
+    private api : API;
 
-api.listen(3000);
+    constructor() {
+        this.api = new API();
+    }
 
-logger.log('Logger fonctionne !')
+    public start() {
+        this.api.listen(3000);
+        logger.log('[Main] Everything started.');
+    }
+}
+
+let main = new Main();
+main.start();
