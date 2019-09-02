@@ -1,3 +1,4 @@
+import logger from '../logger/index';
 import express from 'express';
 
 class API {
@@ -5,15 +6,19 @@ class API {
 
     constructor() {
         this.app = express();
+        this.routes();
+    }
+
+    private routes(): void {
         this.app.get("/", (req, res) => {
-            res.send("Hello world !");
+            res.send("API server is running fine !");
         });
     }
 
     public listen(port : number) {
         this.app.listen(port, () => {
-            console.log('API server running on port ' + port.toString());
-        })
+            logger.log('[API] server running on port ' + port.toString());
+        });
     }
 }
 
