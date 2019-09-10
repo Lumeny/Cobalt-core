@@ -7,20 +7,20 @@ class Console {
         this.level = 0;
     }
 
-    public log(str: string): void {
-        console.log(str)
+    public log(str: string, type: string = ''): void {
+        console.log((type !== '' ? '[' + type + '] ' : '[log] ') + str);
     }
 
-    public info(str: string): void {
-        console.info(str);
+    public info(str: string, type: string = ''): void {
+        console.info((type !== '' ? '[' + type + '] ' : '[info] ') + str);
     }
 
-    public warn(str: string): void {
-        console.warn(str);
+    public warn(str: string, type: string = ''): void {
+        console.warn((type !== '' ? '[' + type + '] ' : '[warn] ') + str);
     }
 
-    public error(str: string): void {
-        console.error(str);
+    public error(str: string, type: string = ''): void {
+        console.error((type !== '' ? '[' + type + '] ' : '[error] ') + str);
     }
 }
 

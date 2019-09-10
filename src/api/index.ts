@@ -25,7 +25,7 @@ class API {
 
     public listen(port : number) {
         this.app.listen(port, () => {
-            logger.log('[API] server running on port ' + port.toString());
+            logger.log('server running on port ' + port.toString(), 'API');
         });
     }
 }

@@ -10,7 +10,7 @@ class Main {
 
     public start() {
         this.api.listen(3000);
-        logger.log('[Main] Everything started.');
+        logger.log('Everything started.', 'Main');
     }
 }
 
