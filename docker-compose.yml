@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo
+  cobalt-core:
+    build: .
+    ports:
+    - "3000:3000"
+    links:
+    - mongo
