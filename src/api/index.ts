@@ -21,6 +21,10 @@ class API {
         this.app.get('/users/:uid', (req, res) => {
             res.json({ user : { uid : req.params.uid }});
         });
+
+        this.app.put('/users/:name', (req, res) => {
+            res.json({ user : { name : req.params.name }});
+        });
     }
 
     public listen(port : number) {
